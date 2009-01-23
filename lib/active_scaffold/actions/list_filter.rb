@@ -7,7 +7,9 @@ module ActiveScaffold::Actions
 	    base.before_filter :do_list_filter
 	    
       as_list_filter_plugin_path = File.join(RAILS_ROOT, 'vendor', 'plugins', as_list_filter_plugin_name, 'frontends', 'default', 'views')
-      if base.respond_to?(:generic_view_paths) && ! base.generic_view_paths.empty?
+      if base.respond_to?(:append_view_path)
+        base.append_view_path(as_list_filter_plugin_path)
+      elsif base.respond_to?(:generic_view_paths) && ! base.generic_view_paths.empty?
         base.generic_view_paths.insert(0, as_list_filter_plugin_path)
       else
         config.inherited_view_paths << as_list_filter_plugin_path
