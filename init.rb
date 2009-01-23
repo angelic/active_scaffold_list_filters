@@ -4,13 +4,13 @@ ActiveScaffold rescue throw "should have included ActiveScaffold plug in first. 
 $:.unshift(File.dirname(__FILE__))
 
 require "#{File.dirname(__FILE__)}/lib/pluginfactory.rb"
-require "#{File.dirname(__FILE__)}/lib/actions/list_filter.rb"
-require "#{File.dirname(__FILE__)}/lib/config/core.rb"
-require "#{File.dirname(__FILE__)}/lib/config/list_filter.rb"
-require "#{File.dirname(__FILE__)}/lib/data_structures/list_filter.rb"
-require "#{File.dirname(__FILE__)}/lib/data_structures/list_filters.rb"
-require "#{File.dirname(__FILE__)}/lib/helpers/id_helpers_override.rb"
-require "#{File.dirname(__FILE__)}/lib/helpers/view_helpers_override.rb"
+require "#{File.dirname(__FILE__)}/lib/active_scaffold/actions/list_filter.rb"
+require "#{File.dirname(__FILE__)}/lib/active_scaffold/config/list_filter_core.rb"
+require "#{File.dirname(__FILE__)}/lib/active_scaffold/config/list_filter.rb"
+require "#{File.dirname(__FILE__)}/lib/active_scaffold/data_structures/list_filter.rb"
+require "#{File.dirname(__FILE__)}/lib/active_scaffold/data_structures/list_filters.rb"
+require "#{File.dirname(__FILE__)}/lib/active_scaffold/helpers/id_helpers_override.rb"
+require "#{File.dirname(__FILE__)}/lib/active_scaffold/helpers/view_helpers_override.rb"
 
 # custom filters
 #Kernel::load 'lib/list_filters/base.rb'
