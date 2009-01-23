@@ -3,8 +3,9 @@ class Association < ActiveScaffold::DataStructures::ListFilter
 	# Return a list of conditions based on the params 
 	def conditions(params)
 		association = association_tree[association_tree.size - 1]
-    column = [association.active_record.table_name, association.primary_key_name].join('.')
-    return ["#{column} IN (?)", params]
+    table = ActiveRecord::Base.connection.quote_table_name(association.active_record.table_name)
+		column = ActiveRecord::Base.connection.quote_column_name(association.primary_key_name)
+		return ["#{table}.#{column} IN (?)", params]
 	end
 	
 	def association_tree()
